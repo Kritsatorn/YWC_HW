@@ -1,14 +1,23 @@
 import React, {Component} from 'react'
+import Home from './pages/Home';
+import NotFound from './pages/NotFound'
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 class App extends Component {
-  render() {
-    return (
-      <div>
-        {/* <img src="https://www.xn--b3caa1e2a7e2b0h2be.com/img/logo/banner.png"/> */}
-        FUCK
-      </div>
-    );
+
+  renderRouter() {
+		return (
+			<Switch>
+				<Route exact path="/" component={Home} />
+				<Route component={ NotFound } />
+			</Switch>
+		);
+	}
+
+	render() {
+		return <BrowserRouter>{this.renderRouter()}</BrowserRouter>;
   }
+
 }
 
 export default App;
